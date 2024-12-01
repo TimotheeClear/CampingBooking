@@ -1,0 +1,65 @@
+[
+    {
+        "nom": "Manzanita.",
+        "id": "234287",
+        "date_arrivee": "2025-05-30",
+        "date_depart": "2025-05-31",
+        "date_resa": "2024-11-30T16:00:00",
+        "status": "complete",
+        "site_favoris": []
+    },
+    {
+        "nom": "Mather Campground",
+        "id": "232490",
+        "date_arrivee": "2025-05-31",
+        "date_depart": "2025-06-02",
+        "date_resa": "2024-12-01T16:00:00",
+        "status": "complete",
+        "site_favoris": ["312", "HA", "056"]
+    },
+    {
+        "nom": "Devils Garden Campground",
+        "id": "234059",
+        "date_arrivee": "2025-06-05",
+        "date_depart": "2025-06-07",
+        "date_resa": "2024-12-05T16:00:00",
+        "status": "pending",
+        "site_favoris": []
+    },
+    {
+        "nom": "Fruita Campground",
+        "id": "272245",
+        "date_arrivee": "2025-06-08",
+        "date_depart": "2025-06-09",
+        "date_resa": "2024-12-08T16:00:00",
+        "status": "pending",
+        "site_favoris": []
+    },
+    {
+        "nom": "Sunset Campground (UT)",
+        "id": "234079",
+        "date_arrivee": "2025-06-09",
+        "date_depart": "2025-06-12",
+        "date_resa": "2025-04-25T16:00:00",
+        "status": "pending",
+        "site_favoris": []
+    },
+    {
+        "nom": "Watchman Campground",
+        "id": "232445",
+        "date_arrivee": "2025-06-12",
+        "date_depart": "2025-06-14",
+        "date_resa": "2024-12-12T16:00:00",
+        "status": "pending",
+        "site_favoris": []
+    },
+    {
+        "nom": "Furnace Creek Campground",
+        "id": "232496",
+        "date_arrivee": "2025-06-15",
+        "date_depart": "2025-06-16",
+        "date_resa": "2024-12-15T16:00:00",
+        "status": "pending",
+        "site_favoris": []
+    }
+]
