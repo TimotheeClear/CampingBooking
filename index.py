@@ -32,6 +32,9 @@ def set_json_in_local_storage(driver, key, data):
     json_string = json.dumps(data)
     driver.execute_script(f"window.localStorage.setItem('{key}', '{json_string}');")
 
+def scroll_to_row(row):
+    driver.execute_script("arguments[0].scrollIntoView({ block: \"center\"});", row)
+
 for camping in camping_list:
     if camping.get("status") == "pending":
         end_url = ""
@@ -87,11 +90,10 @@ for camping in camping_list:
             print("date1")
             deltatime = date_depart - date_arrivee
             nb_nuit = deltatime.days
-            booked = False
 
             nb_panier = 0
             WebDriverWait(driver, 5).until(lambda d: d.execute_script("return document.readyState") == "complete")
-
+            time.sleep(1)
             rows = driver.find_elements(By.CSS_SELECTOR, "tbody tr")
             nb_favoris = len(camping["site_favoris"])
             print(camping["site_favoris"])
@@ -99,24 +101,25 @@ for camping in camping_list:
                 print(f"nb_favoris: {nb_favoris}")
                 for row in rows:
                     if nb_panier < 4 and nb_panier < nb_favoris :
-                        site = row.find_element(By.TAG_NAME, 'a')
-                        numero_site = site.text.strip()
+                        column = row.find_elements(By.XPATH, './*')
+                        numero_site = column[0].text.strip()
                         if numero_site in camping["site_favoris"]:
-                            column = row.find_elements(By.XPATH, './*')
                             if "available" == column[2].get_attribute("class"):
                                 nb_panier += 1
-                                print(f"date1-favoris-{nb_panier}")
                                 first_date = column[2].find_element(By.TAG_NAME, 'button')
+                                scroll_to_row(row)
                                 first_date.click()
+                                print(f"date1-favoris-{nb_panier}")
 
             for row in rows:
                 if nb_panier < 4:
                     column = row.find_elements(By.XPATH, './*')
                     if "available" == column[2].get_attribute("class"):
                         nb_panier += 1
-                        print(f"date1-{nb_panier}")
                         first_date = column[2].find_element(By.TAG_NAME, 'button')
+                        scroll_to_row(row)
                         first_date.click()
+                        print(f"date1-{nb_panier}")
 
             x = 0
             if nb_nuit > 1 :
@@ -124,10 +127,11 @@ for camping in camping_list:
                 selected_lines = driver.find_elements(By.CLASS_NAME, "row-selected")
                 for line in selected_lines:
                     x += 1
-                    print(f"date2-{x}")
                     column2 = line.find_elements(By.XPATH, './*')
                     last_date = column2[2+nb_nuit].find_element(By.TAG_NAME, 'button')
+                    scroll_to_row(line)
                     last_date.click()
+                    print(f"date2-{x}")
 
             # ajouter au panier
             if login:

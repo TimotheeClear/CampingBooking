@@ -13,9 +13,9 @@
         "id": "232490",
         "date_arrivee": "2025-05-31",
         "date_depart": "2025-06-02",
-        "date_resa": "2024-12-01T17:15:00",
+        "date_resa": "2024-12-01T16:00:00",
         "status": "complete",
-        "site_favoris": []
+        "site_favoris": ["312", "HA", "056"]
     },
     {
         "nom": "Devils Garden Campground",
@@ -24,7 +24,7 @@
         "date_depart": "2025-06-07",
         "date_resa": "2024-12-05T16:00:00",
         "status": "pending",
-        "site_favoris": ["31", "32", "33"]
+        "site_favoris": []
     },
     {
         "nom": "Fruita Campground",
