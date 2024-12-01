@@ -11,6 +11,9 @@ from selenium.webdriver.common.keys import Keys
 with open("camping_list.json", "r", encoding="utf-8") as file:
     camping_list = json.load(file)
 
+with open("login.json", "r", encoding="utf-8") as file:
+    login = json.load(file)
+
 # Chemin vers EdgeDriver
 edge_driver_path = "C:\\Projets\\Tools\\edgedriver_win64\\msedgedriver.exe"
 
@@ -19,8 +22,8 @@ service = Service(edge_driver_path)
 driver = webdriver.Edge(service=service)
 
 base_url = "https://www.recreation.gov"
-email = "francoise.clear@gmail.com"
-pswd = "38Pt2B.240"
+email = login["email"]
+pswd = login["pswd"]
 camping = camping_list[1]
 login = True
 
