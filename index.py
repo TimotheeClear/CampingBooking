@@ -35,7 +35,7 @@ def set_json_in_local_storage(driver, key, data):
     json_string = json.dumps(data)
     driver.execute_script(f"window.localStorage.setItem('{key}', '{json_string}');")
 
-def scroll_to_row(row):
+def scroll_to(row):
     driver.execute_script("arguments[0].scrollIntoView({ block: \"center\"});", row)
 
 for camping in camping_list:
@@ -61,10 +61,11 @@ for camping in camping_list:
             filter_button = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.ID, 'legend-icon-dropdown')))
 
             filter_button.click()
-            tent_filter_button = driver.find_element(By.ID, 'tent')
+            tent_filter_button = driver.find_element(By.CSS_SELECTOR, 'label[for="tent"]')
+            scroll_to(tent_filter_button)
             tent_filter_button.click()
             filter_button.click()
-
+            
             # filtre date
             print("filtre date")
             date_arrivee = datetime.strptime(camping['date_arrivee'], "%Y-%m-%d")
@@ -110,7 +111,7 @@ for camping in camping_list:
                             if "available" == column[2].get_attribute("class"):
                                 nb_panier += 1
                                 first_date = column[2].find_element(By.TAG_NAME, 'button')
-                                scroll_to_row(row)
+                                scroll_to(row)
                                 first_date.click()
                                 print(f"date1-favoris-{nb_panier}")
 
@@ -120,7 +121,7 @@ for camping in camping_list:
                     if "available" == column[2].get_attribute("class"):
                         nb_panier += 1
                         first_date = column[2].find_element(By.TAG_NAME, 'button')
-                        scroll_to_row(row)
+                        scroll_to(row)
                         first_date.click()
                         print(f"date1-{nb_panier}")
 
@@ -132,7 +133,7 @@ for camping in camping_list:
                     x += 1
                     column2 = line.find_elements(By.XPATH, './*')
                     last_date = column2[2+nb_nuit].find_element(By.TAG_NAME, 'button')
-                    scroll_to_row(line)
+                    scroll_to(line)
                     last_date.click()
                     print(f"date2-{x}")
 

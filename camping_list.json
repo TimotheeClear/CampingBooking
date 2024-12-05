@@ -21,10 +21,10 @@
         "nom": "Devils Garden Campground",
         "id": "234059",
         "date_arrivee": "2025-06-05",
-        "date_depart": "2025-06-07",
+        "date_depart": "2025-06-08",
         "date_resa": "2024-12-05T16:00:00",
         "status": "pending",
-        "site_favoris": []
+        "site_favoris": ["044", "040", "051", "048"]
     },
     {
         "nom": "Fruita Campground",
