@@ -15,7 +15,7 @@ with open("login.json", "r", encoding="utf-8") as file:
     login = json.load(file)
 
 # Chemin vers EdgeDriver
-edge_driver_path = "C:\\Projets\\Tools\\edgedriver_win64\\msedgedriver.exe"
+edge_driver_path = login["path_to_driver"]
 
 # Configuration du driver
 service = Service(edge_driver_path)
