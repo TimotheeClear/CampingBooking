@@ -3,6 +3,7 @@ import json
 import time
 from selenium import webdriver
 from selenium.webdriver.edge.service import Service
+from selenium.webdriver.edge.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -17,9 +18,15 @@ with open("login.json", "r", encoding="utf-8") as file:
 # Chemin vers EdgeDriver
 edge_driver_path = login["path_to_driver"]
 
+# Chemin vers l'extension edge "Captcha Buster"
+extension_path = login["path_to_extension"]
+
+
 # Configuration du driver
 service = Service(edge_driver_path)
-driver = webdriver.Edge(service=service)
+options = Options()
+options.add_argument(f"--load-extension={extension_path}")
+driver = webdriver.Edge(service=service, options=options)
 
 base_url = "https://www.recreation.gov"
 email = login["email"]

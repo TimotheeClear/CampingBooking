@@ -41,8 +41,17 @@
         "date_arrivee": "2025-06-08",
         "date_depart": "2025-06-09",
         "date_resa": "2024-12-08T16:00:00",
-        "status": "pending",
+        "status": "complete",
         "site_favoris": ["010", "029", "027", "012"]
+    },
+    {
+        "nom": "North Campground (UT)",
+        "id": "234058",
+        "date_arrivee": "2025-06-09",
+        "date_depart": "2025-06-12",
+        "date_resa": "2025-12-09T16:00:00",
+        "status": "pending",
+        "site_favoris": ["069", "074", "107", "106"]
     },
     {
         "nom": "Sunset Campground (UT)",
