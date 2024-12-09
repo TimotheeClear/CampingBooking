@@ -27,6 +27,7 @@ service = Service(edge_driver_path)
 options = Options()
 options.add_argument(f"--load-extension={extension_path}")
 driver = webdriver.Edge(service=service, options=options)
+driver.maximize_window()
 
 base_url = "https://www.recreation.gov"
 email = login["email"]
