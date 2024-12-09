@@ -49,8 +49,8 @@
         "id": "234058",
         "date_arrivee": "2025-06-09",
         "date_depart": "2025-06-12",
-        "date_resa": "2025-12-09T16:00:00",
-        "status": "pending",
+        "date_resa": "2024-12-09T16:00:00",
+        "status": "complete",
         "site_favoris": ["069", "074", "107", "106"]
     },
     {
