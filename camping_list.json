@@ -50,7 +50,7 @@
         "date_arrivee": "2025-06-09",
         "date_depart": "2025-06-12",
         "date_resa": "2024-12-09T16:00:00",
-        "status": "pending",
+        "status": "complete",
         "site_favoris": ["069", "074", "107", "106"]
     },
     {
@@ -59,7 +59,7 @@
         "date_arrivee": "2025-06-09",
         "date_depart": "2025-06-12",
         "date_resa": "2025-04-25T16:00:00",
-        "status": "pending",
+        "status": "complete",
         "site_favoris": []
     },
     {
@@ -68,8 +68,17 @@
         "date_arrivee": "2025-06-12",
         "date_depart": "2025-06-14",
         "date_resa": "2024-12-12T16:00:00",
-        "status": "pending",
-        "site_favoris": []
+        "status": "complete",
+        "site_favoris": ["C002", "C003", "D008", "D040"]
+    },
+    {
+        "nom": "Hume Lake",
+        "id": "232781",
+        "date_arrivee": "2025-06-19",
+        "date_depart": "2025-06-21",
+        "date_resa": "2024-12-19T16:00:00",
+        "status": "complete",
+        "site_favoris": ["035", "004", "014", "009"]
     },
     {
         "nom": "Furnace Creek Campground",
@@ -77,7 +86,16 @@
         "date_arrivee": "2025-06-15",
         "date_depart": "2025-06-16",
         "date_resa": "2024-12-15T16:00:00",
-        "status": "pending",
+        "status": "complete",
         "site_favoris": []
+    },
+    {
+        "nom": "Lower Pines Campground",
+        "id": "232450",
+        "date_arrivee": "2025-06-17",
+        "date_depart": "2025-06-19",
+        "date_resa": "2025-03-24T15:00:00",
+        "status": "pending",
+        "site_favoris": ["001", "003", "021"]
     }
 ]
