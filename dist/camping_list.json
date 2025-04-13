@@ -90,12 +90,21 @@
         "site_favoris": []
     },
     {
+        "nom": "North Pines Campground",
+        "id": "232449",
+        "date_arrivee": "2025-06-17",
+        "date_depart": "2025-06-18",
+        "date_resa": "2025-04-15T16:00:00",
+        "status": "pending",
+        "site_favoris": ["105", "132"]
+    },
+    {
         "nom": "Lower Pines Campground",
         "id": "232450",
         "date_arrivee": "2025-06-17",
         "date_depart": "2025-06-19",
-        "date_resa": "2025-03-24T15:00:00",
+        "date_resa": "2025-05-15T16:00:00",
         "status": "pending",
-        "site_favoris": ["001", "003", "021"]
+        "site_favoris": ["001", "003", "017", "021"]
     }
 ]
