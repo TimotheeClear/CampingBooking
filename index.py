@@ -102,7 +102,7 @@ for camping in camping_list:
             print("date1")
             deltatime = date_depart - date_arrivee
             nb_nuit = deltatime.days
-
+            print("nb_nuit: ", nb_nuit)
             nb_panier = 0
             WebDriverWait(driver, 5).until(lambda d: d.execute_script("return document.readyState") == "complete")
             time.sleep(1)
@@ -116,34 +116,46 @@ for camping in camping_list:
                         column = row.find_elements(By.XPATH, './*')
                         numero_site = column[0].text.strip()
                         if numero_site in camping["site_favoris"]:
+                            is_new = True
                             if "available" == column[2].get_attribute("class"):
-                                nb_panier += 1
+                                if is_new == True :
+                                    nb_panier += 1
+                                    is_new = False
                                 first_date = column[2].find_element(By.TAG_NAME, 'button')
                                 scroll_to(row)
                                 first_date.click()
                                 print(f"date1-favoris-{nb_panier}")
 
-            for row in rows:
-                if nb_panier < 4:
-                    column = row.find_elements(By.XPATH, './*')
-                    if "available" == column[2].get_attribute("class"):
-                        nb_panier += 1
-                        first_date = column[2].find_element(By.TAG_NAME, 'button')
-                        scroll_to(row)
-                        first_date.click()
-                        print(f"date1-{nb_panier}")
+                            if "available" == column[2+1].get_attribute("class"):
+                                if is_new == True :
+                                    nb_panier += 1
+                                    is_new = False
+                                first_date = column[2+1].find_element(By.TAG_NAME, 'button')
+                                scroll_to(row)
+                                first_date.click()
+                                print(f"date2-favoris-{nb_panier}")
 
-            x = 0
-            if nb_nuit > 1 :
-                print("date2")
-                selected_lines = driver.find_elements(By.CLASS_NAME, "row-selected")
-                for line in selected_lines:
-                    x += 1
-                    column2 = line.find_elements(By.XPATH, './*')
-                    last_date = column2[2+nb_nuit].find_element(By.TAG_NAME, 'button')
-                    scroll_to(line)
-                    last_date.click()
-                    print(f"date2-{x}")
+            # for row in rows:
+            #     if nb_panier < 4:
+            #         column = row.find_elements(By.XPATH, './*')
+            #         if "available" == column[2].get_attribute("class"):
+            #             nb_panier += 1
+            #             first_date = column[2].find_element(By.TAG_NAME, 'button')
+            #             scroll_to(row)
+            #             first_date.click()
+            #             print(f"date1-{nb_panier}")
+
+            # x = 0
+            # if nb_nuit > 1 :
+            #     print("date2")
+            #     selected_lines = driver.find_elements(By.CLASS_NAME, "row-selected")
+            #     for line in selected_lines:
+            #         x += 1
+            #         column2 = line.find_elements(By.XPATH, './*')
+            #         last_date = column2[2+nb_nuit].find_element(By.TAG_NAME, 'button')
+            #         scroll_to(line)
+            #         last_date.click()
+            #         print(f"date2-{x}")
 
             # ajouter au panier
             if login:
@@ -165,7 +177,7 @@ for camping in camping_list:
             # attendre 16h20
             while True:
                 now = datetime.now()
-                print(f"{now.hour}:{now.minute:02}")
+                # print(f"{now.hour}:{now.minute:02}")
                 if now >= date_resa + timedelta(minutes=20):
                         break
                 
